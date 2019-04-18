@@ -1,0 +1,1 @@
+../common/exit_group.c

@@ -1,0 +1,4 @@
+2011-09-15  Tavis Ormandy <taviso@cmpxchg8b.com>
+    * Add support for latest system calls, fanotify_*, name_to_handle_at, prlimit64, sendmmsg and others.
+    * Fix build on Fedora 15 x64.
+    * chown32 should not be marked SYS_BORING, it can succeed if target uid == uid.

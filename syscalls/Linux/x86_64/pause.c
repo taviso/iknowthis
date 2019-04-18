@@ -1,0 +1,1 @@
+../common/pause.c

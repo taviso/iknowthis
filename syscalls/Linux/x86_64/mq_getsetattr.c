@@ -1,0 +1,1 @@
+../common/mq_getsetattr.c

@@ -1,0 +1,1 @@
+../../common/clock_getres.c

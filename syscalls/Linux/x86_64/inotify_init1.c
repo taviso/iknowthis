@@ -1,0 +1,1 @@
+../common/inotify_init1.c

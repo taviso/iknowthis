@@ -1,5 +1,4 @@
----------------------------------------
-iknowthis Linux SystemCall Fuzzer
+# iknowthis Linux SystemCall Fuzzer
 -------------------------------------------------
 
 > NOTE: This is a very old fuzzer, it was used to find some pretty important
@@ -26,6 +25,7 @@ operation.
 
 Here is a trivial example of a fuzzer:
 
+```c
 // Check real user’s permissions for a file.
 SYSFUZZ(access, __NR_access, SYS_NONE, CLONE_DEFAULT, 0)
 {
@@ -39,9 +39,10 @@ SYSFUZZ(access, __NR_access, SYS_NONE, CLONE_DEFAULT, 0)
     g_free(pathname);
     return retcode;
 }
+```
 
 Typelib is a set of routines to manage common kernel parameters.
-spawn_syscall_lwp() is a syscall invokation routine that tries to isolate our
+`spawn_syscall_lwp()` is a syscall invokation routine that tries to isolate our
 main process from any damage by executing it in a new lwp. If you're certain
 that a system call can never timeout or damage us, then you can use a faster
 alternative.
@@ -55,4 +56,4 @@ where appropriate.
 
 I usually run iknowthis in a virtual machine, for easier debugging, you can try something like this:
 
-$ while true; do (sleep 1h ; sudo killall -9 iknowthis) & sudo ./iknowthis --dangerous; kill %1; done
+`$ while true; do (sleep 1h ; sudo killall -9 iknowthis) & sudo ./iknowthis --dangerous; kill %1; done`
